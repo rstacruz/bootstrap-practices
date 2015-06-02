@@ -57,7 +57,7 @@
   }
   ```
   
-* You can restyle the following tags: `pre`, `code`, `blockquote`, `abbr`.
+* You can restyle the following tags: `pre`, `code`, `blockquote`, `kbd`, `mark`.
 
 * When creating new components, there's no reason to stick to Bootstrap's naming convention. Consider [rscss] or [BEM] instead.
 
@@ -106,10 +106,16 @@
   @import "bootstrap/responsive-utilities";
   ```
   
-* Don't use glyphicons. They're ugly. Chances are you designer wouldn't wanna use them anyway. If they do, fire them.
+* Don't use glyphicons. They're too bland of a default, so chances are you designer wouldn't wanna use them anyway. If they do, fire them.
 
   ```scss
   // @import "bootstrap/glyphicons";
+  ```
+  
+* If you do end up using Glyphicons, be aware that you are required to give attribution. ([Reference](http://getbootstrap.com/components/#glyphicons-glyphs))
+
+  ```html
+  Icons by <a href='http://glyphicons.com'>Glyphicons</a>.
   ```
   
 * Use Bootstrap variables for media queries. This will make your breakpoints consistent with where the Bootstrap columns will break.
