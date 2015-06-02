@@ -4,7 +4,7 @@
 
 <br>
 
-## In general
+## Including Bootstrap
 
 * Avoid the Less version of Bootstrap. Use the officially-supported Sass version. Be aware that the next version will move to Sass [eventually](https://twitter.com/mdo/status/591364406816079873?lang=en).
 
@@ -12,25 +12,17 @@
   gem 'bootstrap-sass'            # Rails
   bower install bootstrap-sass    # elsewhere
   ```
+  
+* Don't use the [Bootstrap CDN]. Any site you build to last will eventually need to grow up to extend Bootstrap. The only legitimate use of this is for quick demos and jsfiddle.
 
 <br>
 
-## CSS
-
-* Think twice restyling the stock components, especially complicated ones (like navbars and tables).  When in doubt, don't. The stock components account for a lot of corner cases, and working around them is more effort than its worth.
-
-  ```scss
-  // ✗ Avoid. You don't want to do this.
-  .nav-bar {
-    background: $gray;
-    ...
-  }
-  ```
+## Components
 
 * Your objective is to eventually graduate from stock components into new ones.
 
   ```scss
-  // ✗ Avoid (again, don't restyle stock components)
+  // ✗ Avoid (again, try not to restyle stock components)
   .jumbotron {
     background: url('....');
   }
@@ -41,6 +33,20 @@
   }
   ```
   
+* Think twice restyling the stock components, especially complicated ones (like navbars and tables).  When in doubt, don't. The stock components account for a lot of corner cases, and working around them is more effort than its worth.
+
+  ```scss
+  // ✗ Avoid. You don't want to do this.
+  .nav-bar {
+    background: $gray;
+    ...
+  }
+  ```
+
+<br>
+
+## CSS
+
 * Avoid restyling bare elements like h2, h3, and so on. If you need control on the styles to display documents (like Markdown descriptions), create a prefixed component. This will prevent creeping of your own rules into components that rely on these elements to have default styling.
 
   ```scss
@@ -100,42 +106,13 @@
   @import "bootstrap/responsive-utilities";
   ```
   
-* Don't use Glyphicons. They're too bland of a default, so chances are you designer wouldn't wanna use them anyway. If they do, fire them.
-
-  ```scss
-  // @import "bootstrap/glyphicons";
-  ```
-  
-* If you do end up using Glyphicons, be aware that you are required to give attribution. ([Reference](http://getbootstrap.com/components/#glyphicons-glyphs))
-
-  ```html
-  Icons by <a href='http://glyphicons.com'>Glyphicons</a>.
-  ```
-  
 * Use Bootstrap variables for media queries. This will make your breakpoints consistent with where the Bootstrap columns will break.
 
   ```css
   @media (min-width: $screen-md-min) {
   }
   ```
-  
-* Use column mixins when necessary. This will free your markup from unsemantic grid classes. ([Reference](http://getbootstrap.com/css/#grid-less))
-
-  ```scss
-  .field-row {
-    & {
-      @include make-row();
-    }
-    > .label {
-      @include make-lg-column(8);
-    }
-    > .control {
-      @include make-lg-column(3);
-      @include make-lg-column-offset(1);
-    }
-  }
-  ```
-  
+    
 * Always override the following variables. Refer to Bootstrap's [variables.scss](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss) for things you can (should reconfigure). (Reference: [colors](http://getbootstrap.com/css/#less-variables-colors), [typography](http://getbootstrap.com/css/#less-variables-typography))
 
   ```scss
@@ -212,7 +189,28 @@
   }
   ```
   
-* Grid classes are okay to use, but if they appear too often, consider making them a CSS component instead. ([Reference](http://getbootstrap.com/css/#grid-less))
+<br>
+
+## Grids
+
+* Use column mixins when necessary. This will free your markup from unsemantic grid classes. ([Reference](http://getbootstrap.com/css/#grid-less))
+
+  ```scss
+  .dashboard-layout {
+    & {
+      @include make-row();
+    }
+    > .content {
+      @include make-lg-column(8);
+    }
+    > .sidebar {
+      @include make-lg-column(3);
+      @include make-lg-column-offset(1);
+    }
+  }
+  ```
+
+* Grid classes are okay to use in your markup. However, if they appear too often, consider making them a CSS component instead. ([Reference](http://getbootstrap.com/css/#grid-less))
 
   > Grid CSS classes include:
   > .container
@@ -226,15 +224,37 @@
       @include make-row();
     }
     > .label {
-      @include make-lg-column(8);
+      @include make-lg-column(4);
     }
     > .control {
-      @include make-lg-column(3);
-      @include make-lg-column-offset(1);
+      @include make-lg-column(8);
     }
   }
   ```
+  
+<br>
 
+## Icons
+
+* Don't use Glyphicons. They're too bland of a default, so chances are you designer wouldn't wanna use them anyway. If they do, fire them.
+
+  ```scss
+  // @import "bootstrap/glyphicons";
+  ```
+  
+* If you do end up using Glyphicons, be aware that you are required to give attribution. ([Reference](http://getbootstrap.com/components/#glyphicons-glyphs))
+
+  ```html
+  Icons by <a href='http://glyphicons.com'>Glyphicons</a>.
+  ```
+  
+<br>
+
+## Forms
+
+* TBD
+  
 [rscss]: https://github.com/rstacruz/rscss
 [BEM]: http://bem.info/
 [Autoprefixer]: https://github.com/postcss/autoprefixer
+[Bootstrap CDN]: http://www.bootstrapcdn.com/
