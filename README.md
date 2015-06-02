@@ -6,9 +6,9 @@
 
 ## In general
 
-* Avoid the Less version of bootstrap. Use the Sass version since the next version will migrate to Sass eventually.
+* Avoid the Less version of Bootstrap. Use the officially-supported Sass version. Be aware that the next version will move to Sass [eventually](https://twitter.com/mdo/status/591364406816079873?lang=en).
 
-  ```
+  ```rb
   gem 'bootstrap-sass'            # Rails
   bower install bootstrap-sass    # elsewhere
   ```
