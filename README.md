@@ -6,7 +6,7 @@
 
 ## In general
 
-* Avoid the Less version of bootstrap. Use the Sass version since the next version will migrate to Sass anyway.
+* Avoid the Less version of bootstrap. Use the Sass version since the next version will migrate to Sass eventually.
 
   ```
   gem 'bootstrap-sass'            # Rails
@@ -27,7 +27,7 @@
   }
   ```
 
-* If you're using stock componetns, your objective is to eventually graduate from stock components into new ones.
+* If you're using stock components, your objective is to eventually graduate from stock components into new ones.
 
   ```scss
   // ✗ Avoid (again, don't restyle stock components)
@@ -55,6 +55,25 @@
   
 * You can restyle the following tags: `pre`, `code`, `blockquote`, `abbr`.
 
+* When creating new components, there's no reason to stick to Bootstrap's naming convention. Consider [rscss] or [BEM] instead.
+
+  ```scss
+  // ✗ No need to follow bootstrap conventions like .panel-body (elements) or .btn-primary (modifiers)
+  .eventlist { ... }
+  .eventlist-expanded { ... }
+  .eventlist-heading { ... }
+  .eventlist-item { ... }
+  ```
+  
+  ```scss
+  // ✓ Better: rscss conventions are cleaner
+  .event-list {
+    &.-expanded { ... }
+    .heading { ... }
+    .item { ...}
+  }
+  ```
+  
 * Try not to use everything in Bootstrap. Take [bootstrap.scss](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/_bootstrap.scss) and start with the bare minimum your project will need. Comment out everything else.
 
   ```scss
@@ -109,7 +128,9 @@
   $font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
   $font-size-base:          14px;
   $headings-font-weight:    500;
+  ```
   
+  ```scss
   // colors
   $brand-primary:         #337ab7; // your main color
   $brand-success:         #5cb85c; // green
@@ -154,3 +175,6 @@
     .occupation { text-align: center; font-size: 0.8em; }
   }
   ```
+
+[rscss]: https://github.com/rstacruz/rscss
+[BEM]: http://bem.info/
