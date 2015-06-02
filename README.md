@@ -8,30 +8,26 @@
 
 * <a name='use-sass'></a>
 **Use Sass:**
-Avoid the Less version of Bootstrap. Use the officially-supported Sass version. Be aware that the next version will move to Sass [eventually](https://twitter.com/mdo/status/591364406816079873?lang=en).
+Avoid the Less version of Bootstrap. Use the officially-supported Sass version. Be aware that the next version will move to Sass eventually.
 [#](#use-sass)
 
   ```rb
   gem 'bootstrap-sass'            # Rails
   bower install bootstrap-sass    # elsewhere
   ```
+
+  *See: [@mdo's tweet](https://twitter.com/mdo/status/591364406816079873?lang=en)*
   
 * <a name='avoid-the-cdn'></a>
 **Avoid the CDN:**
-Don't use the [Bootstrap CDN]. Any site you build to last will eventually need to grow up to extend Bootstrap. The only legitimate use of this is for quick demos and jsfiddle.
+Don't use the Bootstrap CDN. Any site you build to last will eventually need to grow up to extend Bootstrap. The only legitimate use of this is for quick demos and jsfiddle.
 [#](#avoid-the-cdn)
+
+  *See: [Bootstrap CDN][]*
 
 <br>
 
 ## Components
-
-* <a name='bootstraps-modularity'></a>
-**Bootstrap's modularity:**
-Consider Bootstrap's modules to be completely separate: grids, icons, components, JS components. This means you can choose to use a different grid system, for example. Here are some examples of alternate systems you can use:
-[#](#bootstraps-modularity)
-
-  > * Grids: [Jeet](http://jeet.gs/), [Neat](http://neat.bourbon.io/)
-  > * Icons: [Ionicons](http://ionicons.com/), [Font Awesome](https://fortawesome.github.io/Font-Awesome/)
 
 * <a name='graduate'></a>
 **Graduate:**
@@ -62,6 +58,15 @@ Think twice restyling the stock components, especially complicated ones (like na
     ...
   }
   ```
+  
+* <a name='bootstraps-modularity'></a>
+**Bootstrap's modularity:**
+Consider Bootstrap's modules to be completely separate: grids, icons, components, JS components. This means you can choose to use a different grid system, for example. Here are some examples of alternate systems you can use:
+[#](#bootstraps-modularity)
+
+  > * Grids: [Jeet](http://jeet.gs/), [Neat](http://neat.bourbon.io/)
+  > * Icons: [Ionicons](http://ionicons.com/), [Font Awesome](https://fortawesome.github.io/Font-Awesome/)
+
 
 <br>
 
@@ -71,6 +76,8 @@ Think twice restyling the stock components, especially complicated ones (like na
 **Restyling bare elements:**
 Avoid restyling bare elements like h2, h3, and so on. If you need control on the styles to display documents (like Markdown descriptions), create a prefixed component. This will prevent creeping of your own rules into components that rely on these elements to have default styling.
 [#](#restyling-bare-elements)
+  
+  However, it should be safe to restyle the following tags: `pre`, `code`, `blockquote`, `kbd`, `mark`.
 
   ```scss
   // ✗ Avoid
@@ -81,12 +88,10 @@ Avoid restyling bare elements like h2, h3, and so on. If you need control on the
     h2 { margin-top: 3em; border-bottom: solid 1px #ddd; }
   }
   ```
-  
-  You can restyle the following tags: `pre`, `code`, `blockquote`, `kbd`, `mark`.
 
 * <a name='naming-conventions'></a>
 **Naming conventions:**
-When creating new components, there's no reason to stick to Bootstrap's naming convention. Consider [rscss] or [BEM] instead.
+When creating new components, there's no reason to stick to Bootstrap's naming convention. Consider rscss or BEM instead.
 [#](#naming-conventions)
 
   ```scss
@@ -104,9 +109,11 @@ When creating new components, there's no reason to stick to Bootstrap's naming c
   }
   ```
   
+  *See: [rscss], [BEM]*
+  
 * <a name='be-selective'></a>
 **Be selective:**
-Try not to use everything in Bootstrap. Take [bootstrap.scss](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/_bootstrap.scss) and start with the bare minimum your project will need. Comment out everything else.
+Try not to use everything in Bootstrap. Take *_bootstrap.scss* and start with the bare minimum your project will need. Comment out everything else.
 [#](#be-selective)
 
   ```scss
@@ -135,6 +142,8 @@ Try not to use everything in Bootstrap. Take [bootstrap.scss](https://github.com
   @import "bootstrap/responsive-utilities";
   ```
 
+  *See: [_bootstrap.scss](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/_bootstrap.scss)*
+
 * <a name='media-queries'></a>
 **Media queries:**
 Use Bootstrap variables for media queries. This will make your breakpoints consistent with where the Bootstrap columns will break.
@@ -147,7 +156,7 @@ Use Bootstrap variables for media queries. This will make your breakpoints consi
     
 * <a name='variable-overrides'></a>
 **Variable overrides:**
-Always override the following variables. Refer to Bootstrap's [variables.scss](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss) for things you can (should reconfigure). (Reference: [colors](http://getbootstrap.com/css/#less-variables-colors), [typography](http://getbootstrap.com/css/#less-variables-typography))
+Always override the following variables. Refer to Bootstrap's [variables.scss](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss) for things you can (should reconfigure).
 [#](#variable-overrides)
 
   ```scss
@@ -168,22 +177,26 @@ Always override the following variables. Refer to Bootstrap's [variables.scss](h
   $gray-lighter:          #ddd; // lines
   ```
 
+  *See: [colors](http://getbootstrap.com/css/#less-variables-colors), [typography](http://getbootstrap.com/css/#less-variables-typography)*
+
 * <a name='classnames-to-avoid'></a>
 **Classnames to avoid:**
-Avoid using the following classnames when making new components. They are defined as top-level classes in Bootstrap and may produce conflicts. This is a partial list of the most common ones, but [here is a full list.](Symbols.md)
+Avoid using the following classnames when making new components. They are defined as top-level classes in Bootstrap and may produce conflicts. This is a partial list of the most common ones.
 
-   > .alert [*](http://getbootstrap.com/components/#alerts),
-   > .breadcrumb [*](http://getbootstrap.com/components/#breadcrumbs),
-   > .close [*](http://getbootstrap.com/css/#helper-classes-close),
-   > .label [*](http://getbootstrap.com/components/#labels),
-   > .mark,
-   > .open,
-   > .small,
-   > .badge [*](http://getbootstrap.com/components/#badges)
+  > .alert [*](http://getbootstrap.com/components/#alerts),
+  > .breadcrumb [*](http://getbootstrap.com/components/#breadcrumbs),
+  > .close [*](http://getbootstrap.com/css/#helper-classes-close),
+  > .label [*](http://getbootstrap.com/components/#labels),
+  > .mark,
+  > .open,
+  > .small,
+  > .badge [*](http://getbootstrap.com/components/#badges)
+   
+  *See: [list of Bootstrap symbols](Symbols.md)*
    
 * <a name='autoprefixer'></a>
 **Use Autoprefixer**:
-Use [Autoprefixer] instead of Bootstrap's CSS3 mixins. Autoprefixer has been endorsed officially as of Bootstrap 3.3. ([Reference](http://getbootstrap.com/css/#less-mixins-vendor))
+Use Autoprefixer instead of Bootstrap's CSS3 mixins. Autoprefixer has been endorsed officially as of Bootstrap 3.3.
 
   ```scss
   // ✗ Avoid
@@ -197,6 +210,7 @@ Use [Autoprefixer] instead of Bootstrap's CSS3 mixins. Autoprefixer has been end
   }
   ```
   
+  *See: [Autoprefixer][], [Less mixins](http://getbootstrap.com/css/#less-mixins-vendor)*
 
 <br>
 
@@ -236,7 +250,7 @@ Avoid using helper classes like `.pull-left` or `.text-right`. Consider the use 
 
 * <a name='column-mixins'></a>
 **Column mixins:**
-Use column mixins when necessary. This will free your markup from unsemantic grid classes. ([Reference](http://getbootstrap.com/css/#grid-less))
+Use column mixins when necessary. This will free your markup from unsemantic grid classes.
 
   ```scss
   .dashboard-layout {
@@ -252,10 +266,12 @@ Use column mixins when necessary. This will free your markup from unsemantic gri
     }
   }
   ```
-
+  
+  *See: [Less grids reference](http://getbootstrap.com/css/#grid-less)*
+ 
 * <a name='grid-classes'></a>
   **Grid classes:**
-Grid classes are okay to use in your markup. However, if they appear too often, consider making them a CSS component instead. ([Reference](http://getbootstrap.com/css/#grid-less))
+Grid classes are okay to use in your markup. However, if they appear too often, consider making them a CSS component instead.
 
   Grid CSS classes include: `.container`, `.container-fluid`, `.row`, `.col-sm-6`.
 
@@ -273,6 +289,8 @@ Grid classes are okay to use in your markup. However, if they appear too often, 
   }
   ```
   
+  *See: [Less grids reference](http://getbootstrap.com/css/#grid-less)*
+   
 <br>
 
 ## Icons
@@ -283,11 +301,13 @@ Grid classes are okay to use in your markup. However, if they appear too often, 
   // @import "bootstrap/glyphicons";
   ```
   
-* **Attribute Glyphicons**: If you do end up using Glyphicons, be aware that you are required to give attribution. ([Reference](http://getbootstrap.com/components/#glyphicons-glyphs))
+* **Attribute Glyphicons**: If you do end up using Glyphicons, be aware that you are required to give attribution.
 
   ```html
   Icons by <a href='http://glyphicons.com'>Glyphicons</a>.
   ```
+  
+  *See: [reference](http://getbootstrap.com/components/#glyphicons-glyphs)*
   
 <br>
 
