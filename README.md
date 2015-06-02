@@ -134,7 +134,7 @@ Use Bootstrap variables for media queries. This will make your breakpoints consi
     
 * <a name='variable-overrides'></a>
 **Variable overrides:**
-Always override the following variables. Refer to Bootstrap's [variables.scss](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss) for things you can (should) reconfigure.
+Always override the following variables. Refer to Bootstrap's *variables.scss* for things you can (should) reconfigure.
 [#](#variable-overrides)
 
   ```scss
@@ -155,7 +155,7 @@ Always override the following variables. Refer to Bootstrap's [variables.scss](h
   $gray-lighter:          #ddd; // lines
   ```
 
-  *See: [colors](http://getbootstrap.com/css/#less-variables-colors), [typography](http://getbootstrap.com/css/#less-variables-typography)*
+  *See: [variables.scss](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss), [colors variables](http://getbootstrap.com/css/#less-variables-colors), [typography variables](http://getbootstrap.com/css/#less-variables-typography)*
    
 * <a name='autoprefixer'></a>
 **Use Autoprefixer**:
