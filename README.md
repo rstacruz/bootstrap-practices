@@ -6,7 +6,8 @@
 
 ## Including Bootstrap
 
-* Avoid the Less version of Bootstrap. Use the officially-supported Sass version. Be aware that the next version will move to Sass [eventually](https://twitter.com/mdo/status/591364406816079873?lang=en).
+* <a name='use-sass' href='#use-sass'>#</a>
+Avoid the Less version of Bootstrap. Use the officially-supported Sass version. Be aware that the next version will move to Sass [eventually](https://twitter.com/mdo/status/591364406816079873?lang=en).
   <a name='use-css' href='#use-css'>#</a>
 
   ```rb
@@ -14,15 +15,15 @@
   bower install bootstrap-sass    # elsewhere
   ```
   
-* Don't use the [Bootstrap CDN]. Any site you build to last will eventually need to grow up to extend Bootstrap. The only legitimate use of this is for quick demos and jsfiddle. 
-  <a name='cdn' href='#cdn'>#</a>
+* <a name='avoid-the-cdn' href='#avoid-the-cdn'>#</a>
+Don't use the [Bootstrap CDN]. Any site you build to last will eventually need to grow up to extend Bootstrap. The only legitimate use of this is for quick demos and jsfiddle. 
 
 <br>
 
 ## Components
 
-* Your objective is to eventually graduate from stock components into new ones.
-  <a name='graduate' href='#graduate'>#</a>
+* <a name='graduate' href='#graduate'>#</a>
+Your objective is to eventually graduate from stock components into new ones.
 
   ```scss
   // ✗ Avoid (again, try not to restyle stock components)
@@ -36,8 +37,8 @@
   }
   ```
   
-* Think twice restyling the stock components, especially complicated ones (like navbars and tables).  When in doubt, don't. The stock components account for a lot of corner cases, and working around them is more effort than its worth.
-  <a name='restyling-stock-components' href='#restyling-stock-components'>#</a>
+* <a name='restyling-stock-components' href='#restyling-stock-components'>#</a>
+Think twice restyling the stock components, especially complicated ones (like navbars and tables).  When in doubt, don't. The stock components account for a lot of corner cases, and working around them is more effort than its worth.
 
   ```scss
   // ✗ Avoid. You don't want to do this.
@@ -51,8 +52,8 @@
 
 ## CSS
 
-* Avoid restyling bare elements like h2, h3, and so on. If you need control on the styles to display documents (like Markdown descriptions), create a prefixed component. This will prevent creeping of your own rules into components that rely on these elements to have default styling.
-  <a name='restyling-bare-elements' href='#restyling-bare-elements'>#</a>
+* <a name='restyling-bare-elements' href='#restyling-bare-elements'>#</a>
+Avoid restyling bare elements like h2, h3, and so on. If you need control on the styles to display documents (like Markdown descriptions), create a prefixed component. This will prevent creeping of your own rules into components that rely on these elements to have default styling.
 
 
   ```scss
@@ -65,10 +66,10 @@
   }
   ```
   
-* You can restyle the following tags: `pre`, `code`, `blockquote`, `kbd`, `mark`.
+  You can restyle the following tags: `pre`, `code`, `blockquote`, `kbd`, `mark`.
 
 * <a name='naming-conventions' href='#naming-conventions'>#</a>
-  When creating new components, there's no reason to stick to Bootstrap's naming convention. Consider [rscss] or [BEM] instead.
+When creating new components, there's no reason to stick to Bootstrap's naming convention. Consider [rscss] or [BEM] instead.
 
   ```scss
   // ✗ No need to follow bootstrap conventions like .panel-body (elements) or .btn-primary (modifiers)
@@ -86,7 +87,7 @@
   ```
   
 * <a name='be-selective' href='#be-selective'>#</a>
-  Try not to use everything in Bootstrap. Take [bootstrap.scss](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/_bootstrap.scss) and start with the bare minimum your project will need. Comment out everything else.
+Try not to use everything in Bootstrap. Take [bootstrap.scss](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/_bootstrap.scss) and start with the bare minimum your project will need. Comment out everything else.
 
   ```scss
   // Core variables and mixins
@@ -113,15 +114,17 @@
   @import "bootstrap/utilities";
   @import "bootstrap/responsive-utilities";
   ```
-  
-* Use Bootstrap variables for media queries. This will make your breakpoints consistent with where the Bootstrap columns will break.
+
+* <a name='media-queries' href='#media-queries'>#</a>
+Use Bootstrap variables for media queries. This will make your breakpoints consistent with where the Bootstrap columns will break.
 
   ```css
   @media (min-width: $screen-md-min) {
   }
   ```
     
-* Always override the following variables. Refer to Bootstrap's [variables.scss](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss) for things you can (should reconfigure). (Reference: [colors](http://getbootstrap.com/css/#less-variables-colors), [typography](http://getbootstrap.com/css/#less-variables-typography))
+* <a name='variable-overrides' href='#variable-overrides'>#</a>
+Always override the following variables. Refer to Bootstrap's [variables.scss](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss) for things you can (should reconfigure). (Reference: [colors](http://getbootstrap.com/css/#less-variables-colors), [typography](http://getbootstrap.com/css/#less-variables-typography))
 
   ```scss
   // fonts
@@ -141,7 +144,8 @@
   $gray-lighter:          #ddd; // lines
   ```
 
-*  Avoid using the following classnames when making new components. They are defined as top-level classes in Bootstrap and may produce conflicts. This is a partial list of the most common ones, but [here is a full list.](Symbols.md)
+* <a name='classnames-to-avoid' href='#classnames-to-avoid'>#</a>
+  Avoid using the following classnames when making new components. They are defined as top-level classes in Bootstrap and may produce conflicts. This is a partial list of the most common ones, but [here is a full list.](Symbols.md)
 
    > .alert [*](http://getbootstrap.com/components/#alerts),
    > .breadcrumb [*](http://getbootstrap.com/components/#breadcrumbs),
@@ -152,7 +156,8 @@
    > .small,
    > .badge [*](http://getbootstrap.com/components/#badges)
    
-* Use [Autoprefixer] instead of Bootstrap's CSS3 mixins. Autoprefixer has been endorsed officially as of Bootstrap 3.3. ([Reference](http://getbootstrap.com/css/#less-mixins-vendor))
+* <a name='autoprefixer' href='#autoprefixer'>#</a>
+  Use [Autoprefixer] instead of Bootstrap's CSS3 mixins. Autoprefixer has been endorsed officially as of Bootstrap 3.3. ([Reference](http://getbootstrap.com/css/#less-mixins-vendor))
 
   ```scss
   // ✗ Avoid
@@ -171,7 +176,8 @@
 
 ## Markup
 
-* Avoid using helper classes like `.pull-left` or `.text-right`. Consider the use of these as code smell anti-patterns: anytime they appear in your code, it's a wise time to evaluate if they should be refactored into new components instead.
+* <a name='avoid-helpers' href='#avoid-helpers'>#</a>
+Avoid using helper classes like `.pull-left` or `.text-right`. Consider the use of these as code smell anti-patterns: anytime they appear in your code, it's a wise time to evaluate if they should be refactored into new components instead.
 
   ```html
   <!-- ✗ Bad: too much helper classes -->
@@ -201,7 +207,8 @@
 
 ## Grids
 
-* Use column mixins when necessary. This will free your markup from unsemantic grid classes. ([Reference](http://getbootstrap.com/css/#grid-less))
+* <a name='column-mixins' href='#column-mixins'>#</a>
+Use column mixins when necessary. This will free your markup from unsemantic grid classes. ([Reference](http://getbootstrap.com/css/#grid-less))
 
   ```scss
   .dashboard-layout {
