@@ -7,8 +7,8 @@
 ## Including Bootstrap
 
 * <a name='use-sass' href='#use-sass'>#</a>
+**Use Sass:**
 Avoid the Less version of Bootstrap. Use the officially-supported Sass version. Be aware that the next version will move to Sass [eventually](https://twitter.com/mdo/status/591364406816079873?lang=en).
-  <a name='use-css' href='#use-css'>#</a>
 
   ```rb
   gem 'bootstrap-sass'            # Rails
@@ -16,13 +16,21 @@ Avoid the Less version of Bootstrap. Use the officially-supported Sass version. 
   ```
   
 * <a name='avoid-the-cdn' href='#avoid-the-cdn'>#</a>
+**Avoid the CDN:**
 Don't use the [Bootstrap CDN]. Any site you build to last will eventually need to grow up to extend Bootstrap. The only legitimate use of this is for quick demos and jsfiddle. 
 
 <br>
 
 ## Components
 
+* **Bootstrap's modularity:**
+Consider Bootstrap's modules to be completely separate: grids, icons, components, JS components. This means you can choose to use a different grid system, for example. Here are some examples of alternate systems you can use:
+
+  > * Grids: [Jeet](http://jeet.gs/), [Neat](http://neat.bourbon.io/)
+  > * Icons: [Ionicons](http://ionicons.com/), [Font Awesome](https://fortawesome.github.io/Font-Awesome/)
+
 * <a name='graduate' href='#graduate'>#</a>
+**Graduate:**
 Your objective is to eventually graduate from stock components into new ones.
 
   ```scss
@@ -38,6 +46,7 @@ Your objective is to eventually graduate from stock components into new ones.
   ```
   
 * <a name='restyling-stock-components' href='#restyling-stock-components'>#</a>
+**Restyling stock components:**
 Think twice restyling the stock components, especially complicated ones (like navbars and tables).  When in doubt, don't. The stock components account for a lot of corner cases, and working around them is more effort than its worth.
 
   ```scss
@@ -53,6 +62,7 @@ Think twice restyling the stock components, especially complicated ones (like na
 ## CSS
 
 * <a name='restyling-bare-elements' href='#restyling-bare-elements'>#</a>
+**Restyling bare elements:**
 Avoid restyling bare elements like h2, h3, and so on. If you need control on the styles to display documents (like Markdown descriptions), create a prefixed component. This will prevent creeping of your own rules into components that rely on these elements to have default styling.
 
 
@@ -69,6 +79,7 @@ Avoid restyling bare elements like h2, h3, and so on. If you need control on the
   You can restyle the following tags: `pre`, `code`, `blockquote`, `kbd`, `mark`.
 
 * <a name='naming-conventions' href='#naming-conventions'>#</a>
+**Naming conventions:**
 When creating new components, there's no reason to stick to Bootstrap's naming convention. Consider [rscss] or [BEM] instead.
 
   ```scss
@@ -87,6 +98,7 @@ When creating new components, there's no reason to stick to Bootstrap's naming c
   ```
   
 * <a name='be-selective' href='#be-selective'>#</a>
+**Be selective:**
 Try not to use everything in Bootstrap. Take [bootstrap.scss](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/_bootstrap.scss) and start with the bare minimum your project will need. Comment out everything else.
 
   ```scss
@@ -116,6 +128,7 @@ Try not to use everything in Bootstrap. Take [bootstrap.scss](https://github.com
   ```
 
 * <a name='media-queries' href='#media-queries'>#</a>
+**Media queries:**
 Use Bootstrap variables for media queries. This will make your breakpoints consistent with where the Bootstrap columns will break.
 
   ```css
@@ -124,6 +137,7 @@ Use Bootstrap variables for media queries. This will make your breakpoints consi
   ```
     
 * <a name='variable-overrides' href='#variable-overrides'>#</a>
+**Variable overrides:**
 Always override the following variables. Refer to Bootstrap's [variables.scss](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss) for things you can (should reconfigure). (Reference: [colors](http://getbootstrap.com/css/#less-variables-colors), [typography](http://getbootstrap.com/css/#less-variables-typography))
 
   ```scss
@@ -145,7 +159,8 @@ Always override the following variables. Refer to Bootstrap's [variables.scss](h
   ```
 
 * <a name='classnames-to-avoid' href='#classnames-to-avoid'>#</a>
-  Avoid using the following classnames when making new components. They are defined as top-level classes in Bootstrap and may produce conflicts. This is a partial list of the most common ones, but [here is a full list.](Symbols.md)
+**Classnames to avoid:**
+Avoid using the following classnames when making new components. They are defined as top-level classes in Bootstrap and may produce conflicts. This is a partial list of the most common ones, but [here is a full list.](Symbols.md)
 
    > .alert [*](http://getbootstrap.com/components/#alerts),
    > .breadcrumb [*](http://getbootstrap.com/components/#breadcrumbs),
@@ -157,7 +172,8 @@ Always override the following variables. Refer to Bootstrap's [variables.scss](h
    > .badge [*](http://getbootstrap.com/components/#badges)
    
 * <a name='autoprefixer' href='#autoprefixer'>#</a>
-  Use [Autoprefixer] instead of Bootstrap's CSS3 mixins. Autoprefixer has been endorsed officially as of Bootstrap 3.3. ([Reference](http://getbootstrap.com/css/#less-mixins-vendor))
+**Use Autoprefixer**:
+Use [Autoprefixer] instead of Bootstrap's CSS3 mixins. Autoprefixer has been endorsed officially as of Bootstrap 3.3. ([Reference](http://getbootstrap.com/css/#less-mixins-vendor))
 
   ```scss
   // ✗ Avoid
@@ -177,6 +193,7 @@ Always override the following variables. Refer to Bootstrap's [variables.scss](h
 ## Markup
 
 * <a name='avoid-helpers' href='#avoid-helpers'>#</a>
+**Avoid helpers:**
 Avoid using helper classes like `.pull-left` or `.text-right`. Consider the use of these as code smell anti-patterns: anytime they appear in your code, it's a wise time to evaluate if they should be refactored into new components instead.
 
   ```html
@@ -208,6 +225,7 @@ Avoid using helper classes like `.pull-left` or `.text-right`. Consider the use 
 ## Grids
 
 * <a name='column-mixins' href='#column-mixins'>#</a>
+**Column mixins:**
 Use column mixins when necessary. This will free your markup from unsemantic grid classes. ([Reference](http://getbootstrap.com/css/#grid-less))
 
   ```scss
@@ -225,13 +243,11 @@ Use column mixins when necessary. This will free your markup from unsemantic gri
   }
   ```
 
-* Grid classes are okay to use in your markup. However, if they appear too often, consider making them a CSS component instead. ([Reference](http://getbootstrap.com/css/#grid-less))
+* <a name='grid-classes' href='#grid-classes'>#</a>
+  **Grid classes:**
+Grid classes are okay to use in your markup. However, if they appear too often, consider making them a CSS component instead. ([Reference](http://getbootstrap.com/css/#grid-less))
 
-  > Grid CSS classes include:
-  > .container
-  > .container-fluid
-  > .row
-  > .col-sm-6
+  Grid CSS classes include: `.container`, `.container-fluid`, `.row`, `.col-sm-6`.
 
   ```scss
   .field-row {
@@ -251,13 +267,13 @@ Use column mixins when necessary. This will free your markup from unsemantic gri
 
 ## Icons
 
-* Don't use Glyphicons. They're too bland of a default, so chances are you designer wouldn't wanna use them anyway. If they do, fire them.
+* **Avoid Glyphicons:** They're too bland of a default, so chances are you designer wouldn't wanna use them anyway. If they do, fire them.
 
   ```scss
   // @import "bootstrap/glyphicons";
   ```
   
-* If you do end up using Glyphicons, be aware that you are required to give attribution. ([Reference](http://getbootstrap.com/components/#glyphicons-glyphs))
+* **Attribute Glyphicons**: If you do end up using Glyphicons, be aware that you are required to give attribution. ([Reference](http://getbootstrap.com/components/#glyphicons-glyphs))
 
   ```html
   Icons by <a href='http://glyphicons.com'>Glyphicons</a>.
