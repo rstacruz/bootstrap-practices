@@ -8,7 +8,7 @@
 
 * Try not to use everything in Bootstrap. Take [bootstrap.scss](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/_bootstrap.scss) and start with the bare minimum your project will need. Comment out everything else.
 
-  ```css
+  ```scss
   // Core variables and mixins
   @import "bootstrap/variables";
   @import "bootstrap/mixins";
@@ -34,13 +34,13 @@
   
 * Don't use glyphicons. They're ugly. Chances are you designer wouldn't wanna use them anyway. If they do, fire them.
 
-  ```css
+  ```scss
   // @import "bootstrap/glyphicons";
   ```
   
 * Do not restyle the stock components. The stock components account for a lot of corner cases, and working around them is more effort than its worth.
 
-  ```css
+  ```scss
   // ✗ Avoid. You don't want to do this.
   .nav-bar {
     background: $gray;
@@ -50,7 +50,7 @@
 
 * If you're using stock componetns, your objective is to eventually graduate from stock components into new ones.
 
-  ```css
+  ```scss
   // ✗ Avoid (again, don't restyle stock components)
   .jumbotron {
     background: url('....');
@@ -83,13 +83,13 @@
   
 * Use column mixins when necessary. ([Reference](http://getbootstrap.com/css/#mixins))
 
-  ```css
+  ```scss
   .make-sm-column(4);
   ```
   
 * Always override the following variables. Refer to Bootstrap's [variables.scss](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss) for things you can (should reconfigure).
 
-  ```css
+  ```scss
   // fonts
   $font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
   $font-size-base:          14px;
@@ -127,7 +127,7 @@
   </div>
   ```
   
-  ```css
+  ```scss
   /* ✓ Better */
   .profile-card {
     .& { @include clearfix; }
