@@ -88,28 +88,6 @@ Avoid restyling bare elements like h2, h3, and so on. If you need control on the
     h2 { margin-top: 3em; border-bottom: solid 1px #ddd; }
   }
   ```
-
-* <a name='naming-conventions'></a>
-**Naming conventions:**
-When creating new components, there's no reason to stick to Bootstrap's naming convention. Consider rscss or BEM instead.
-[#](#naming-conventions)
-
-  ```scss
-  // ✗ No need to follow bootstrap conventions like .panel-body (elements) or .btn-primary (modifiers)
-  .eventlist { ... }
-  .eventlist-expanded { ... }
-  .eventlist-heading { ... }
-  .eventlist-item { ... }
-  
-  // ✓ Better: rscss conventions are cleaner
-  .event-list {
-    &.-expanded { ... }
-    .heading { ... }
-    .item { ...}
-  }
-  ```
-  
-  *See: [rscss], [BEM]*
   
 * <a name='be-selective'></a>
 **Be selective:**
@@ -178,21 +156,6 @@ Always override the following variables. Refer to Bootstrap's [variables.scss](h
   ```
 
   *See: [colors](http://getbootstrap.com/css/#less-variables-colors), [typography](http://getbootstrap.com/css/#less-variables-typography)*
-
-* <a name='classnames-to-avoid'></a>
-**Classnames to avoid:**
-Avoid using the following classnames when making new components. They are defined as top-level classes in Bootstrap and may produce conflicts. This is a partial list of the most common ones.
-
-  > .alert [*](http://getbootstrap.com/components/#alerts),
-  > .breadcrumb [*](http://getbootstrap.com/components/#breadcrumbs),
-  > .close [*](http://getbootstrap.com/css/#helper-classes-close),
-  > .label [*](http://getbootstrap.com/components/#labels),
-  > .mark,
-  > .open,
-  > .small,
-  > .badge [*](http://getbootstrap.com/components/#badges)
-   
-  *See: [list of Bootstrap symbols](Symbols.md)*
    
 * <a name='autoprefixer'></a>
 **Use Autoprefixer**:
@@ -211,6 +174,48 @@ Use Autoprefixer instead of Bootstrap's CSS3 mixins. Autoprefixer has been endor
   ```
   
   *See: [Autoprefixer][], [Less mixins](http://getbootstrap.com/css/#less-mixins-vendor)*
+
+<br>
+
+## Naming
+
+* <a name='naming-conventions'></a>
+**Naming conventions:**
+When creating new components, there's no reason to stick to Bootstrap's naming convention. Consider rscss or BEM instead.
+[#](#naming-conventions)
+
+  ```scss
+  // ✗ No need to follow bootstrap conventions like .panel-body (elements) or .btn-primary (modifiers)
+  .eventlist { ... }
+  .eventlist-expanded { ... }
+  .eventlist-heading { ... }
+  .eventlist-item { ... }
+  
+  // ✓ Better: rscss conventions are cleaner
+  .event-list {
+    &.-expanded { ... }
+    .heading { ... }
+    .item { ...}
+  }
+  ```
+  
+  *See: [rscss], [BEM]*
+
+* <a name='reserved-keywords'></a>
+**Reserved keywords:**
+Avoid using the following classnames when making new components. They are defined as top-level classes in Bootstrap and may produce conflicts. This is a partial list of the most common ones, check the full list below.
+[#](#reserved-keywords)
+
+  > alert[*](http://getbootstrap.com/components/#alerts),
+  > breadcrumb[*](http://getbootstrap.com/components/#breadcrumbs),
+  > close[*](http://getbootstrap.com/css/#helper-classes-close),
+  > label[*](http://getbootstrap.com/components/#labels),
+  > mark,
+  > open,
+  > small,
+  > badge[*](http://getbootstrap.com/components/#badges)
+   
+  *See: [list of Bootstrap keywords](Keywords.md)*
 
 <br>
 
