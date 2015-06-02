@@ -7,19 +7,22 @@
 ## Including Bootstrap
 
 * Avoid the Less version of Bootstrap. Use the officially-supported Sass version. Be aware that the next version will move to Sass [eventually](https://twitter.com/mdo/status/591364406816079873?lang=en).
+  <a name='use-css' href='#use-css'>#</a>
 
   ```rb
   gem 'bootstrap-sass'            # Rails
   bower install bootstrap-sass    # elsewhere
   ```
   
-* Don't use the [Bootstrap CDN]. Any site you build to last will eventually need to grow up to extend Bootstrap. The only legitimate use of this is for quick demos and jsfiddle.
+* Don't use the [Bootstrap CDN]. Any site you build to last will eventually need to grow up to extend Bootstrap. The only legitimate use of this is for quick demos and jsfiddle. 
+  <a name='cdn' href='#cdn'>#</a>
 
 <br>
 
 ## Components
 
 * Your objective is to eventually graduate from stock components into new ones.
+  <a name='graduate' href='#graduate'>#</a>
 
   ```scss
   // ✗ Avoid (again, try not to restyle stock components)
@@ -34,6 +37,7 @@
   ```
   
 * Think twice restyling the stock components, especially complicated ones (like navbars and tables).  When in doubt, don't. The stock components account for a lot of corner cases, and working around them is more effort than its worth.
+  <a name='restyling-stock-components' href='#restyling-stock-components'>#</a>
 
   ```scss
   // ✗ Avoid. You don't want to do this.
@@ -48,6 +52,8 @@
 ## CSS
 
 * Avoid restyling bare elements like h2, h3, and so on. If you need control on the styles to display documents (like Markdown descriptions), create a prefixed component. This will prevent creeping of your own rules into components that rely on these elements to have default styling.
+  <a name='restyling-bare-elements' href='#restyling-bare-elements'>#</a>
+
 
   ```scss
   // ✗ Avoid
@@ -61,7 +67,8 @@
   
 * You can restyle the following tags: `pre`, `code`, `blockquote`, `kbd`, `mark`.
 
-* When creating new components, there's no reason to stick to Bootstrap's naming convention. Consider [rscss] or [BEM] instead.
+* <a name='naming-conventions' href='#naming-conventions'>#</a>
+  When creating new components, there's no reason to stick to Bootstrap's naming convention. Consider [rscss] or [BEM] instead.
 
   ```scss
   // ✗ No need to follow bootstrap conventions like .panel-body (elements) or .btn-primary (modifiers)
@@ -78,7 +85,8 @@
   }
   ```
   
-* Try not to use everything in Bootstrap. Take [bootstrap.scss](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/_bootstrap.scss) and start with the bare minimum your project will need. Comment out everything else.
+* <a name='be-selective' href='#be-selective'>#</a>
+  Try not to use everything in Bootstrap. Take [bootstrap.scss](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/_bootstrap.scss) and start with the bare minimum your project will need. Comment out everything else.
 
   ```scss
   // Core variables and mixins
