@@ -17,7 +17,7 @@
 
 ## CSS
 
-* Avoid restyling the stock components, especially complicated ones (like navbars and tables). The stock components account for a lot of corner cases, and working around them is more effort than its worth.
+* Think twice restyling the stock components, especially complicated ones (like navbars and tables).  When in doubt, don't. The stock components account for a lot of corner cases, and working around them is more effort than its worth.
 
   ```scss
   // ✗ Avoid. You don't want to do this.
@@ -100,7 +100,7 @@
   @import "bootstrap/responsive-utilities";
   ```
   
-* Don't use glyphicons. They're too bland of a default, so chances are you designer wouldn't wanna use them anyway. If they do, fire them.
+* Don't use Glyphicons. They're too bland of a default, so chances are you designer wouldn't wanna use them anyway. If they do, fire them.
 
   ```scss
   // @import "bootstrap/glyphicons";
@@ -158,14 +158,14 @@
 
 *  Avoid using the following classnames when making new components. They are defined as top-level classes in Bootstrap and may produce conflicts. This is a partial list of the most common ones, but [here is a full list.](Symbols.md)
 
-   > [.alert](http://getbootstrap.com/components/#alerts),
-   > [.breadcrumb](http://getbootstrap.com/components/#breadcrumbs),
-   > [.close](http://getbootstrap.com/css/#helper-classes-close),
-   > [.label](http://getbootstrap.com/components/#labels),
+   > .alert [*](http://getbootstrap.com/components/#alerts),
+   > .breadcrumb [*](http://getbootstrap.com/components/#breadcrumbs),
+   > .close [*](http://getbootstrap.com/css/#helper-classes-close),
+   > .label [*](http://getbootstrap.com/components/#labels),
    > .mark,
    > .open,
    > .small,
-   > [.badge](http://getbootstrap.com/components/#badges)
+   > .badge [*](http://getbootstrap.com/components/#badges)
    
 * Use [Autoprefixer] instead of Bootstrap's CSS3 mixins. Autoprefixer has been endorsed officially as of Bootstrap 3.3. ([Reference](http://getbootstrap.com/css/#less-mixins-vendor))
 
