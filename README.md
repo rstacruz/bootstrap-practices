@@ -43,7 +43,7 @@
   
 * Avoid restyling bare elements like h2, h3, and so on. If you need control on the styles to display documents (like Markdown descriptions), create a prefixed component. This will prevent creeping of your own rules into components that rely on these elements to have default styling.
 
-  ```css
+  ```scss
   // ✗ Avoid
   h2 { margin-top: 3em; border-bottom: solid 1px #ddd; }
   
