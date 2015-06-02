@@ -134,7 +134,7 @@ Use Bootstrap variables for media queries. This will make your breakpoints consi
     
 * <a name='variable-overrides'></a>
 **Variable overrides:**
-Always override the following variables. Refer to Bootstrap's [variables.scss](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss) for things you can (should reconfigure).
+Always override the following variables. Refer to Bootstrap's [variables.scss](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss) for things you can (should) reconfigure.
 [#](#variable-overrides)
 
   ```scss
