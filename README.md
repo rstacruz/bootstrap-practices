@@ -34,9 +34,7 @@
   .jumbotron {
     background: url('....');
   }
-  ```
   
-  ```scss
   // ✓ OK
   .new-jumbotron {
     background: url('....');
@@ -48,9 +46,7 @@
   ```scss
   // ✗ Avoid
   h2 { margin-top: 3em; border-bottom: solid 1px #ddd; }
-  ```
   
-  ```scss
   // ✓ Better
   .formatted-content {
     h2 { margin-top: 3em; border-bottom: solid 1px #ddd; }
@@ -67,9 +63,7 @@
   .eventlist-expanded { ... }
   .eventlist-heading { ... }
   .eventlist-item { ... }
-  ```
   
-  ```scss
   // ✓ Better: rscss conventions are cleaner
   .event-list {
     &.-expanded { ... }
@@ -150,9 +144,7 @@
   $font-size-base:          14px;
   $line-height-base:        1.42857;
   $headings-font-weight:    500;
-  ```
   
-  ```scss
   // colors
   $brand-primary:         #337ab7; // your main color
   $brand-success:         #5cb85c; // green
@@ -182,9 +174,7 @@
   .my-component {
     @include box-shadow(0 1px 4px black);
   }
-  ```
   
-  ```scss
   // ✓ OK
   .my-component {
     box-shadow: 0 1px 4px black;
