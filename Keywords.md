@@ -1,4 +1,4 @@
-# List of bootstrap symbols
+# List of bootstrap keywords
 
 Generated from bootstrap-sass 3.3.4.1.
 
