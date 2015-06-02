@@ -34,7 +34,9 @@
   .jumbotron {
     background: url('....');
   }
+  ```
   
+  ```scss
   // ✓ OK
   .new-jumbotron {
     background: url('....');
@@ -46,7 +48,9 @@
   ```scss
   // ✗ Avoid
   h2 { margin-top: 3em; border-bottom: solid 1px #ddd; }
+  ```
   
+  ```scss
   // ✓ Better
   .formatted-content {
     h2 { margin-top: 3em; border-bottom: solid 1px #ddd; }
@@ -115,18 +119,30 @@
   }
   ```
   
-* Use column mixins when necessary. ([Reference](http://getbootstrap.com/css/#mixins))
+* Use column mixins when necessary. This will free your markup from unsemantic grid classes. ([Reference](http://getbootstrap.com/css/#grid-less))
 
   ```scss
-  .make-sm-column(4);
+  .field-row {
+    & {
+      @include make-row();
+    }
+    > .label {
+      @include make-lg-column(8);
+    }
+    > .control {
+      @include make-lg-column(3);
+      @include make-lg-column-offset(1);
+    }
+  }
   ```
   
-* Always override the following variables. Refer to Bootstrap's [variables.scss](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss) for things you can (should reconfigure).
+* Always override the following variables. Refer to Bootstrap's [variables.scss](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss) for things you can (should reconfigure). (Reference: [colors](http://getbootstrap.com/css/#less-variables-colors), [typography](http://getbootstrap.com/css/#less-variables-typography))
 
   ```scss
   // fonts
   $font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
   $font-size-base:          14px;
+  $line-height-base:        1.42857;
   $headings-font-weight:    500;
   ```
   
@@ -142,9 +158,33 @@
   $gray-lighter:          #ddd; // lines
   ```
 
-*  Avoid using the following classnames when making new components. They have clashes with Bootstrap. [Here is a full list.](Symbols.md)
+*  Avoid using the following classnames when making new components. They are defined as top-level classes in Bootstrap and may produce conflicts. This is a partial list of the most common ones, but [here is a full list.](Symbols.md)
 
-> .alert, .breadcrumb, .close, .label, .mark, .open, .small
+   > [.alert](http://getbootstrap.com/components/#alerts),
+   > [.breadcrumb](http://getbootstrap.com/components/#breadcrumbs),
+   > [.close](http://getbootstrap.com/css/#helper-classes-close),
+   > [.label](http://getbootstrap.com/components/#labels),
+   > .mark,
+   > .open,
+   > .small,
+   > [.badge](http://getbootstrap.com/components/#badges)
+   
+* Use [Autoprefixer] instead of Bootstrap's CSS3 mixins. Autoprefixer has been endorsed officially as of Bootstrap 3.3. ([Reference](http://getbootstrap.com/css/#less-mixins-vendor))
+
+  ```scss
+  // ✗ Avoid
+  .my-component {
+    @include box-shadow(0 1px 4px black);
+  }
+  ```
+  
+  ```scss
+  // ✓ OK
+  .my-component {
+    box-shadow: 0 1px 4px black;
+  }
+  ```
+  
 
 <br>
 
@@ -175,6 +215,30 @@
     .occupation { text-align: center; font-size: 0.8em; }
   }
   ```
+  
+* Grid classes are okay to use, but if they appear too often, consider making them a CSS component instead. ([Reference](http://getbootstrap.com/css/#grid-less))
+
+  > Grid CSS classes include:
+  > .container
+  > .container-fluid
+  > .row
+  > .col-sm-6
+
+  ```scss
+  .field-row {
+    & {
+      @include make-row();
+    }
+    > .label {
+      @include make-lg-column(8);
+    }
+    > .control {
+      @include make-lg-column(3);
+      @include make-lg-column-offset(1);
+    }
+  }
+  ```
 
 [rscss]: https://github.com/rstacruz/rscss
 [BEM]: http://bem.info/
+[Autoprefixer]: https://github.com/postcss/autoprefixer
