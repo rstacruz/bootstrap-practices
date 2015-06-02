@@ -2,42 +2,21 @@
 
 :construction: This document lists down the things I've learned when working on Bootstrap projects.
 
-## CSS
+<br>
+
+## In general
 
 * Avoid the Less version of bootstrap. Use the Sass version since the next version will migrate to Sass anyway.
 
-* Try not to use everything in Bootstrap. Take [bootstrap.scss](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/_bootstrap.scss) and start with the bare minimum your project will need. Comment out everything else.
-
-  ```scss
-  // Core variables and mixins
-  @import "bootstrap/variables";
-  @import "bootstrap/mixins";
-  
-  // Reset and dependencies
-  @import "bootstrap/normalize";
-  @import "bootstrap/print";
-  //@import "bootstrap/glyphicons";
-  
-  // Core CSS
-  @import "bootstrap/scaffolding";
-  @import "bootstrap/type";
-  @import "bootstrap/code";
-  @import "bootstrap/grid";
-  @import "bootstrap/tables";
-  @import "bootstrap/forms";
-  @import "bootstrap/buttons";
-  
-  // Utility classes
-  @import "bootstrap/utilities";
-  @import "bootstrap/responsive-utilities";
   ```
-  
-* Don't use glyphicons. They're ugly. Chances are you designer wouldn't wanna use them anyway. If they do, fire them.
-
-  ```scss
-  // @import "bootstrap/glyphicons";
+  gem 'bootstrap-sass'            # Rails
+  bower install bootstrap-sass    # elsewhere
   ```
-  
+
+<br>
+
+## CSS
+
 * Do not restyle the stock components. The stock components account for a lot of corner cases, and working around them is more effort than its worth.
 
   ```scss
@@ -58,9 +37,11 @@
   
   // ✓ OK
   .new-jumbotron {
+    background: url('....');
   }
   ```
-* Avoid restyling un-classed tags like h2, h3, and so on. If you need control on the styles to display documents (like Markdown descriptions), create a prefixed component.
+  
+* Avoid restyling bare elements like h2, h3, and so on. If you need control on the styles to display documents (like Markdown descriptions), create a prefixed component. This will prevent creeping of your own rules into components that rely on these elements to have default styling.
 
   ```css
   // ✗ Avoid
@@ -74,6 +55,40 @@
   
 * You can restyle the following tags: `pre`, `code`, `blockquote`, `abbr`.
 
+* Try not to use everything in Bootstrap. Take [bootstrap.scss](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/_bootstrap.scss) and start with the bare minimum your project will need. Comment out everything else.
+
+  ```scss
+  // Core variables and mixins
+  @import "bootstrap/variables";
+  @import "bootstrap/mixins";
+  
+  // Reset and dependencies
+  @import "bootstrap/normalize";
+  @import "bootstrap/print";
+  // @import "bootstrap/glyphicons";
+  
+  // Core CSS
+  @import "bootstrap/scaffolding";
+  @import "bootstrap/type";
+  @import "bootstrap/code";
+  @import "bootstrap/grid";
+  @import "bootstrap/tables";
+  @import "bootstrap/forms";
+  @import "bootstrap/buttons";
+  
+  // (...snip...)
+  
+  // Utility classes
+  @import "bootstrap/utilities";
+  @import "bootstrap/responsive-utilities";
+  ```
+  
+* Don't use glyphicons. They're ugly. Chances are you designer wouldn't wanna use them anyway. If they do, fire them.
+
+  ```scss
+  // @import "bootstrap/glyphicons";
+  ```
+  
 * Use Bootstrap variables for media queries. This will make your breakpoints consistent with where the Bootstrap columns will break.
 
   ```css
@@ -109,6 +124,8 @@
 *  Avoid using the following classnames when making new components. They have clashes with Bootstrap. [Here is a full list.](Symbols.md)
 
 > .alert, .breadcrumb, .close, .label, .mark, .open, .small
+
+<br>
 
 ## Markup
 
