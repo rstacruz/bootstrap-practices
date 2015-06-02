@@ -17,7 +17,7 @@
 
 ## CSS
 
-* Do not restyle the stock components. The stock components account for a lot of corner cases, and working around them is more effort than its worth.
+* Avoid restyling the stock components, especially complicated ones (like navbars and tables). The stock components account for a lot of corner cases, and working around them is more effort than its worth.
 
   ```scss
   // ✗ Avoid. You don't want to do this.
@@ -27,7 +27,7 @@
   }
   ```
 
-* If you're using stock components, your objective is to eventually graduate from stock components into new ones.
+* Your objective is to eventually graduate from stock components into new ones.
 
   ```scss
   // ✗ Avoid (again, don't restyle stock components)
