@@ -61,11 +61,18 @@ Think twice restyling the stock components, especially complicated ones (like na
   
 * <a name='bootstraps-modularity'></a>
 **Bootstrap's modularity:**
-Consider Bootstrap's modules to be completely separate: grids, icons, components, JS components. This means you can choose to use a different grid system, for example. Here are some examples of alternate systems you can use:
+Bootstrap's modules were made to be completely separate: grids, icons, components, JS components. This means you can mix and match them:
 [#](#bootstraps-modularity)
 
-  > * Grids: [Jeet](http://jeet.gs/), [Neat](http://neat.bourbon.io/)
-  > * Icons: [Ionicons](http://ionicons.com/), [Font Awesome](https://fortawesome.github.io/Font-Awesome/)
+  * You can use Bootstrap for grids, but not its CSS components.
+  * You don't need to use all the CSS components.
+  * You can not use the icons at all.
+  * You can use a different grid system.
+
+  Here are some examples of alternate systems you can use:
+
+  * Grids: [Jeet](http://jeet.gs/), [Neat](http://neat.bourbon.io/)
+  * Icons: [Ionicons](http://ionicons.com/), [Font Awesome](https://fortawesome.github.io/Font-Awesome/)
 
 
 <br>
