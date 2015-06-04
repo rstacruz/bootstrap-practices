@@ -91,7 +91,7 @@ Avoid restyling bare elements like h2, h3, and so on. If you need control on the
   h2 { margin-top: 3em; border-bottom: solid 1px #ddd; }
   
   // ✓ Better
-  .formatted-content {
+  .formatted {
     h2 { margin-top: 3em; border-bottom: solid 1px #ddd; }
   }
   ```
@@ -158,8 +158,8 @@ Always override the following variables. Refer to Bootstrap's *variables.scss* f
   $brand-warning:         #f0ad4e; // yellow
   $brand-danger:          #d9534f; // red
   
-  $gray-light:            #777; // muted text
-  $gray-lighter:          #ddd; // lines
+  $gray-light:            #777777; // muted text
+  $gray-lighter:          #dddddd; // lines
   ```
 
   *See: [variables.scss](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss), [colors variables](http://getbootstrap.com/css/#less-variables-colors), [typography variables](http://getbootstrap.com/css/#less-variables-typography)*
