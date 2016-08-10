@@ -80,17 +80,17 @@ Bootstrap's modules were made to be completely separate: grids, icons, component
 
 * <a name='restyling-bare-elements'></a>
 **Restyling bare elements:**
-Avoid restyling bare elements like h2, h3, and so on. If you need control on the styles to display documents (like Markdown descriptions), create a prefixed component. This will prevent creeping of your own rules into components that rely on these elements to have default styling.
+Avoid style bare elements like h2, h3, and so on, with anything other than fonts & margins. If you need control on the styles to display documents (like Markdown descriptions), create a prefixed component. This will prevent creeping of your own rules into components that rely on these elements to have default styling.
 [#](#restyling-bare-elements)
   
-  However, it should be safe to restyle the following tags: `pre`, `code`, `blockquote`, `kbd`, `mark`.
+  <!-- However, it should be safe to restyle the following tags: `pre`, `code`, `blockquote`, `kbd`, `mark`. -->
 
   ```scss
-  // ✗ Avoid
+  // ✗ Avoid: borders will show up everywhere!
   h2 { margin-top: 3em; border-bottom: solid 1px #ddd; }
   
   // ✓ Better
-  .formatted {
+  .formatted-text {
     h2 { margin-top: 3em; border-bottom: solid 1px #ddd; }
   }
   ```
