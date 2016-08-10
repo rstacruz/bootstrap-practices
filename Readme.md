@@ -325,7 +325,25 @@ Grid classes are okay to use in your markup. However, if they appear too often, 
 
 ## Forms
 
-* TBD
+* **Make your own form components**: The Bootstrap docs prescribe you to use `.col-md-6` (and so on) to line up your forms. It's better to create your own components.
+
+  ```html
+  <div class='form-field'>
+    <label class='lbl'>Name:</label>
+    <div class='controls'>
+      <input type='text' class='form-control'>
+    </div>
+  </div>
+  ```
+  
+  ```css
+  .form-field {
+    & { @include clearfix; }
+    > .lbl { width: 30%; float: left; }
+    > .controls { width: 70%; float: left; }
+  }
+  /* We're using `lbl` instead of `label` because `label` is a reserved Bootstrap keyword :( */
+  ```
   
 [rscss]: https://github.com/rstacruz/rscss
 [BEM]: http://bem.info/
