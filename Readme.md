@@ -65,7 +65,7 @@ Bootstrap's modules were made to be completely separate: grids, icons, component
 
   * You can use Bootstrap for grids, but not its CSS components.
   * You don't need to use all the CSS components.
-  * You can not use the icons at all.
+  * You can use different icons.
   * You can use a different grid system.
 
   Here are some examples of alternate systems you can use:
