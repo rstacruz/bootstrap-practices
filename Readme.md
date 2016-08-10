@@ -1,6 +1,8 @@
 # Bootstrap practices
 
-:construction: This document lists down the things I've learned when working on Bootstrap projects.
+This document lists down the things I've learned when working on Bootstrap projects.
+
+> Also see [rscss](http://rscss.io/), a Reasonable system for CSS stylesheet structure, which perfectly complements this document.
 
 <br>
 
