@@ -33,11 +33,11 @@ Don't use the Bootstrap CDN. Any site you build to last will eventually need to 
 
 * <a name='graduate'></a>
 **Graduate:**
-Your objective is to eventually graduate from stock components into new ones.
+Your objective is to eventually graduate from stock components into new ones. Instead of restyling stock components, consider creating new ones instead.
 [#](#graduate)
 
   ```scss
-  // ✗ Avoid (again, try not to restyle stock components)
+  // ✗ Avoid (avoid restyling stock components)
   .jumbotron {
     background: url('....');
   }
