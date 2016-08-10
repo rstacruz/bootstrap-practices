@@ -245,13 +245,14 @@ Avoid using helper classes like `.pull-left` or `.text-right`. Consider the use 
   ```
   
   ```scss
-  /* ✓ Better */
+  /* ✓ Better: use components */
+  /* (this example uses rscss conventions.) */
   .profile-card {
-    .& { @include clearfix; }
-    .info { float: left; }
-    .avatar { float: right; }
-    .name { text-align: center; }
-    .occupation { text-align: center; font-size: 0.8em; }
+    & { @include clearfix; }
+    > .info { float: left; }
+    > .info > .name { text-align: center; }
+    > .info > .occupation { text-align: center; font-size: 0.8em; }
+    > .avatar { float: right; }
   }
   ```
   
