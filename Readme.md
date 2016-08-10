@@ -73,6 +73,7 @@ Bootstrap's modules were made to be completely separate: grids, icons, component
   * Grids: [Jeet](http://jeet.gs/), [Neat](http://neat.bourbon.io/)
   * Icons: [Ionicons](http://ionicons.com/), [Font Awesome](https://fortawesome.github.io/Font-Awesome/)
 
+  The recommended setup is to use Bootstrap for grids, basic components, JS, and nothing else (eg, icons, stock components).
 
 <br>
 
