@@ -47,8 +47,7 @@ Your objective is to eventually graduate from stock components into new ones.
   ```
   
 * <a name='restyling-stock-components'></a>
-**Restyling stock components:**
-Think twice restyling the stock components, especially complicated ones (like navbars and tables).  When in doubt, don't. The stock components account for a lot of corner cases, and working around them is more effort than its worth.
+**Restyling stock components:** Don't restyle stock components except `.btn` and `.form-control`. Everything else are too complicated to restyle (eg, navbars and tables). The stock components account for a lot of corner cases, and working around them is more effort than its worth.
 [#](#restyling-stock-components)
 
   ```scss
