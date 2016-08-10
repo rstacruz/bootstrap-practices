@@ -63,7 +63,6 @@ Your objective is to eventually graduate from stock components into new ones.
 Bootstrap's modules were made to be completely separate: grids, icons, components, JS components. This means you can mix and match them:
 [#](#bootstraps-modularity)
 
-  * You can use Bootstrap for grids, but not its CSS components.
   * You don't need to use all the CSS components.
   * You can use different icons.
   * You can use a different grid system.
