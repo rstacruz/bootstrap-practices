@@ -10,7 +10,7 @@ This document lists down the things I've learned when working on Bootstrap proje
 
 - <a name='use-sass'></a>
   **Use Sass:**
-  Avoid the Less version of Bootstrap. Use the officially-supported Sass version. Be aware that the next version will move to Sass eventually.
+  Avoid the Less version of Bootstrap. Use the officially-supported Sass version. Be aware that Bootstrap's official sources migrated from Less to Sass since version 4.
   [#](#use-sass)
 
   ```rb
